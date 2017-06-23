@@ -16,8 +16,8 @@ public class vbScript : MonoBehaviour, IVirtualButtonEventHandler {
 	void Start () {
 		column = GameObject.Find ("column");
 		thirty = GameObject.Find ("30");
-		fifteen = GameObject.Find ("15");
 		twentyone = GameObject.Find ("21");
+		fifteen = GameObject.Find ("15");
 		twelve = GameObject.Find ("12");
 		nine = GameObject.Find ("9");
 		seven = GameObject.Find ("7");
