@@ -1,0 +1,129 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Vuforia;
+
+public class vbScript : MonoBehaviour, IVirtualButtonEventHandler {
+	private GameObject column;
+	private GameObject thirty;
+	private GameObject fifteen;
+	private GameObject twentyone;
+	private GameObject twelve;
+	private GameObject nine;
+	private GameObject seven;
+	private GameObject six;
+	// Use this for initialization
+	void Start () {
+		column = GameObject.Find ("column");
+		thirty = GameObject.Find ("30");
+		fifteen = GameObject.Find ("15");
+		twentyone = GameObject.Find ("21");
+		twelve = GameObject.Find ("12");
+		nine = GameObject.Find ("9");
+		seven = GameObject.Find ("7");
+		six = GameObject.Find ("6");
+		VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
+        for (int i = 0; i < vbs.Length; ++i) {
+            vbs[i].RegisterEventHandler(this);
+			}
+		column.SetActive(true);
+		thirty.SetActive(false);
+		twentyone.SetActive(false);
+		fifteen.SetActive(false);
+		twelve.SetActive(false);
+		nine.SetActive(false);
+		seven.SetActive(false);
+		six.SetActive(false);
+	}
+	
+	public void OnButtonPressed (VirtualButtonAbstractBehaviour vb){
+	Debug.Log("Button pressed!");
+	switch(vb.VirtualButtonName) {
+		case "thirtyBtn":
+			column.SetActive(false);
+			thirty.SetActive(true);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(false);
+                    break;
+		case "twentyOneBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(true);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(false);
+			break;
+		case "fifteenBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(true);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(false);
+            break;
+		case "twelveBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(true);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(false);
+                    break;
+		case "nineBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(true);
+			seven.SetActive(false);
+			six.SetActive(false);
+                    break;
+		case "sevenBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(true);
+			six.SetActive(false);
+                    break;
+		case "sixBtn":
+			column.SetActive(false);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(true);
+                    break;
+		case "resetBtn":
+			column.SetActive(true);
+			thirty.SetActive(false);
+			twentyone.SetActive(false);
+			fifteen.SetActive(false);
+			twelve.SetActive(false);
+			nine.SetActive(false);
+			seven.SetActive(false);
+			six.SetActive(false);
+                    break;
+					}
+	
+	}
+	public void OnButtonReleased(VirtualButtonAbstractBehaviour vb) { 
+		Debug.Log("Button released!");
+		
+	}
+}
